@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SHIV SHEKHAR JHA - Portfolio</title>
+    
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SHIV SHEKHAR JHA</h1>
+            <p>Web Developer</p>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <section id="about">
+            <h2>About Me</h2>
+            <img src="data/my pic.jpg" alt="shiv shekhar jha">
+            <p>I am a passionate web developer with expertise in HTML, CSS, JavaScript, and SQL. With a strong foundation in computer science and years of experience in web development, I strive to create elegant and efficient solutions for complex problems. My dedication to continuous learning and attention to detail ensure high-quality results in every project.</p>
+        </section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>SQL</li>
+            </ul>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-card">
+                <img src="data/project1.jpg" alt="Project 1">
+                <div class="project-info">
+                    <h3>Project 1 Title</h3>
+                    <p>Description of Project 1.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="data/project2.jpg" alt="Project 2">
+                <div class="project-info">
+                    <h3>Project 2 Title</h3>
+                    <p>Description of Project 2.</p>
+                </div>
+            </div>
+            <!-- Add more project cards as needed -->
+        </section>
+        <section id="resume">
+            <h2>Resume</h2>
+            <p>Download my <a href="data/RESUME - SHIV.pdf" target="_blank">resume</a>.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <form>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Shiv Shekhar Jha. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Add hover effect to project cards
+            var projects = document.querySelectorAll("#projects .project-card");
+            projects.forEach(function(project) {
+                project.addEventListener("mouseenter", function() {
+                    this.style.transform = "scale(1.05)";
+                });
+                project.addEventListener("mouseleave", function() {
+                    this.style.transform = "scale(1)";
+                });
+            });
+
+            // Smooth scrolling for section links in the navigation menu
+            const navLinks = document.querySelectorAll("nav ul li a");
+            navLinks.forEach(function(link) {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute("href").substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 50,
+                        behavior: "smooth"
+                    });
+                });
+            });
+
+            // Highlighting the current section in the navigation menu
+            window.addEventListener("scroll", function() {
+                const fromTop = window.scrollY + 50;
+                navLinks.forEach(function(link) {
+                    const section = document.getElementById(link.getAttribute("href").substring(1));
+                    if (
+                        section.offsetTop <= fromTop &&
+                        section.offsetTop + section.offsetHeight > fromTop
+                    ) {
+                        link.classList.add("current");
+                    } else {
+                        link.classList.remove("current");
+                    }
+                });
+            });
+
+            // Form validation for the contact section
+            const contactForm = document.querySelector("#contact form");
+            contactForm.addEventListener("submit", function(event) {
+                const email = document.getElementById("email").value;
+                const phone = document.getElementById("phone").value;
+                if (!validateEmail(email)) {
+                    alert("Please enter a valid email address.");
+                    event.preventDefault();
+                } else if (!validatePhone(phone)) {
+                    alert("Please enter a valid phone number.");
+                    event.preventDefault();
+                }
+            });
+
+            function validateEmail(email) {
+                const re = /\S+@\S+\.\S+/;
+                return re.test(email);
+            }
+
+            function validatePhone(phone) {
+                const re = /^[+]?[0-9]{10,}$/;
+                return re.test(phone);
+            }
+        });
+    </script>
+</body>
+</html>
