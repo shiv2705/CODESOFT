@@ -16,7 +16,6 @@ header {
     color: #fff;
     padding: 20px;
     text-align: center;
-    /* Adding gradient background */
     background-image: linear-gradient(to right, #333, #555);
 }
 
@@ -48,6 +47,7 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #555;
 }
+
 
 header h1 {
     font-size: 2.5em;
@@ -115,17 +115,37 @@ header p {
     font-size: 1.2em;
 }
 
-#projects {
-    padding: 50px 0;
-    text-align: center;
-}
-
-#projects h2 {
-    font-size: 2em;
+.project-card {
+    display: flex;
     margin-bottom: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s;
 }
 
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+.project-card img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 20px;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
 #resume {
     background-color: #fff;
     padding: 50px 0;

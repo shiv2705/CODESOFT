@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF`-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>SHIV SHEKHAR JHA - Portfolio</title>
-    
 </head>
 <body>
     <div class="container">
@@ -39,17 +38,19 @@
         <section id="projects">
             <h2>Projects</h2>
             <div class="project-card">
-                <img src="data/project1.jpg" alt="Project 1">
+               <!---<img src="data/project1.jpg" alt="Project 1">--> 
                 <div class="project-info">
-                    <h3>Project 1 Title</h3>
-                    <p>Description of Project 1.</p>
+                    <h3>TRAVL.COM (Industrial Training Project) (2022)</h3>
+                    <p>This project is about a travelling catalogue which allows users to view different places spots across the India. It contains the relevant details of every place’s spot including price, location and description of a particular place.</p>
                 </div>
             </div>
             <div class="project-card">
-                <img src="data/project2.jpg" alt="Project 2">
+             <!--   <img src="data/project2.jpg" alt="Project 2">-->
                 <div class="project-info">
-                    <h3>Project 2 Title</h3>
-                    <p>Description of Project 2.</p>
+                    <h3>YELP CAMP WebApp (Minor Project) (2023)</h3>
+                    <p>HTML, CSS, Node.JS, MongoDB, Mapbox, Passport.js, Cloudinary
+                    • Designing and implementing a user-friendly travelling website that allows users to easily search for destinations, browse travel packages. Used Mapbox SDK’s to fetch geolocation of tours, build API’s to sign-in users.
+                    • Developing a review and rating system that enables users to share their experiences and provide feedback to help other travelers make informed decisions.</p>
                 </div>
             </div>
             <!-- Add more project cards as needed -->
@@ -60,87 +61,14 @@
         </section>
         <section id="contact">
             <h2>Contact</h2>
-            <form>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone" name="phone">
-                <button type="submit">Submit</button>
-            </form>
+            <p>Email: <a href="mailto:shivjha60@gmail.com">shivjha60@gmail.com</a></p>
+            <p>Phone: <a href="tel:8377858198">8377858198</a></p>
         </section>
     </div>
     
     <footer>
         <p>&copy; 2024 Shiv Shekhar Jha. All rights reserved.</p>
     </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Add hover effect to project cards
-            var projects = document.querySelectorAll("#projects .project-card");
-            projects.forEach(function(project) {
-                project.addEventListener("mouseenter", function() {
-                    this.style.transform = "scale(1.05)";
-                });
-                project.addEventListener("mouseleave", function() {
-                    this.style.transform = "scale(1)";
-                });
-            });
-
-            // Smooth scrolling for section links in the navigation menu
-            const navLinks = document.querySelectorAll("nav ul li a");
-            navLinks.forEach(function(link) {
-                link.addEventListener("click", function(event) {
-                    event.preventDefault();
-                    const targetId = this.getAttribute("href").substring(1);
-                    const targetSection = document.getElementById(targetId);
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 50,
-                        behavior: "smooth"
-                    });
-                });
-            });
-
-            // Highlighting the current section in the navigation menu
-            window.addEventListener("scroll", function() {
-                const fromTop = window.scrollY + 50;
-                navLinks.forEach(function(link) {
-                    const section = document.getElementById(link.getAttribute("href").substring(1));
-                    if (
-                        section.offsetTop <= fromTop &&
-                        section.offsetTop + section.offsetHeight > fromTop
-                    ) {
-                        link.classList.add("current");
-                    } else {
-                        link.classList.remove("current");
-                    }
-                });
-            });
-
-            // Form validation for the contact section
-            const contactForm = document.querySelector("#contact form");
-            contactForm.addEventListener("submit", function(event) {
-                const email = document.getElementById("email").value;
-                const phone = document.getElementById("phone").value;
-                if (!validateEmail(email)) {
-                    alert("Please enter a valid email address.");
-                    event.preventDefault();
-                } else if (!validatePhone(phone)) {
-                    alert("Please enter a valid phone number.");
-                    event.preventDefault();
-                }
-            });
-
-            function validateEmail(email) {
-                const re = /\S+@\S+\.\S+/;
-                return re.test(email);
-            }
-
-            function validatePhone(phone) {
-                const re = /^[+]?[0-9]{10,}$/;
-                return re.test(phone);
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
